@@ -64,7 +64,7 @@ def OutFile(dict):
         for comment in dict:
             print(comment)
             # format 字符串格式化 %s
-            f.write('标题: {}\t 链接：{}\t 发帖人：{}\t 发帖时间：{}\t 回复数量：{}\n'.format(comment['title'], comment['link'], comment['name'], comment['time'], comment['replyNum']))
+            f.write('标题: {}\t 链接：{}\t 发帖人：{}\t 发帖时间：{}\t 回复数量：{}\n'.format(comment['title'], comment['link'], comment['name'], comment['time'], comment['replyNum']), encoding='utf8')
     print('回来吧，小蜘蛛')
 
 def main(base_url, deep):
