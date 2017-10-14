@@ -12,7 +12,7 @@ class BjtianqiSpider(scrapy.Spider):
     start_urls = []
 
     # 需要爬的城市名称
-    citys = ['beijing', 'xian', 'shanghai']
+    citys = ['beijing', 'xian', 'shanghai', 'hangzhou', 'chongqing', 'chengdu']
 
     # 用一个很简答的循环来生成需要爬的链接：
     for city in citys:
