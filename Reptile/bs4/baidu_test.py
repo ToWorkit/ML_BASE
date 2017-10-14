@@ -41,7 +41,7 @@ def get_content(url):
 
     # 按照之前的分析，我们找到所有具有‘ j_thread_list clearfix’属性的li标签。返回一个列表类型。
     liTags = soup.find_all('li', attrs={'class': ' j_thread_list clearfix'})
-
+    # print(liTags)
     # 通过循环找到每个帖子里的我们需要的信息：
     for li in liTags:
         # 初始化一个字典来存储文章信息
@@ -75,7 +75,7 @@ def Out2File(dict):
     with open('TTBT.txt', 'a+') as f:
         for comment in dict:
             f.write('标题： {} \t 链接：{} \t 发帖人：{} \t 发帖时间：{} \t 回复数量： {} \n'.format(
-                comment['title'], comment['link'], comment['name'], comment['time'], comment['replyNum']), encoding='utf8')
+                comment['title'], comment['link'], comment['name'], comment['time'], comment['replyNum']))
 
         print('当前页面爬取完成')
 

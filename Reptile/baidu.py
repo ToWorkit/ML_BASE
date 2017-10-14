@@ -4,6 +4,7 @@
 requests bs4
 3.6.3
 ubuntn
+初级爬虫，通过class 属性查找内容
 '''
 import requests
 import time
@@ -34,7 +35,7 @@ def get_content(url):
     # 构建bs4
     soup = BeautifulSoup(html, 'lxml')
     # 找到所有指定类属性的li
-    liTags = soup.find_all('li', attrs={'class': 'j_thread_list clearfix'})
+    liTags = soup.find_all('li', attrs={'class': ' j_thread_list clearfix'})
     # 迭代
     for li in liTags:
         # 初始化一个字典来存储文章信息
@@ -42,12 +43,16 @@ def get_content(url):
         # 利用try...except防止爬虫找打不到信息而停止运行
         try:
             # 筛选出需要的信息，并保存到comment中
-            comment['title'] = li.find('a', attrs={'class': 'j_th_tit'}).text.strip()
-            comment['link'] = li.find('a', attrs={'class': 'j_th_tit'})['href']
-            comment['name'] = li.find('span', attrs={'class': 'tb_icon_author'}).text.strip()
-            comment['time'] = li.find('spam', attrs={'class': 'pull-right is_show_create_time'}).text.strip()
-            comment['replyNum'] = li.find('span', attrs={'class': 'threadlist_rep_num center_text'}).text.strip()
-            # 添加至帖子信息容器中
+            comment['title'] = li.find(
+                'a', attrs={'class': 'j_th_tit '}).text.strip()
+            comment['link'] = "http://tieba.baidu.com/" + \
+                              li.find('a', attrs={'class': 'j_th_tit '})['href']
+            comment['name'] = li.find(
+                'span', attrs={'class': 'tb_icon_author '}).text.strip()
+            comment['time'] = li.find(
+                'span', attrs={'class': 'pull-right is_show_create_time'}).text.strip()
+            comment['replyNum'] = li.find(
+                'span', attrs={'class': 'threadlist_rep_num center_text'}).text.strip()
             comments.append(comment)
         except:
             print('小蜘蛛要复活')
@@ -64,7 +69,7 @@ def OutFile(dict):
         for comment in dict:
             print(comment)
             # format 字符串格式化 %s
-            f.write('标题: {}\t 链接：{}\t 发帖人：{}\t 发帖时间：{}\t 回复数量：{}\n'.format(comment['title'], comment['link'], comment['name'], comment['time'], comment['replyNum']), encoding='utf8')
+            f.write('标题: {}\t 链接：{}\t 发帖人：{}\t 发帖时间：{}\t 回复数量：{}\n'.format(comment['title'], comment['link'], comment['name'], comment['time'], comment['replyNum']))
     print('回来吧，小蜘蛛')
 
 def main(base_url, deep):
