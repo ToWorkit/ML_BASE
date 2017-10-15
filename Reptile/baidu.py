@@ -78,20 +78,22 @@ def main(base_url, deep):
     # 0 - deep
     for i in range(0, deep):
         # 页
-        url_list.append(base_url + '&pn' + str(50*i))
+        url_list.append(base_url + '&pn=' + str(50*i))
     print('网页到手，开始处理数据')
 
     # 循环写入数据
     for url in url_list:
+        print(url)
         # 拿数据
         content = get_content(url)
         # 处理数据
         OutFile(content)
     print('辛苦了小蜘蛛，数据以处理完毕')
 
-base_url = 'http://tieba.baidu.com/f?kw=%E7%94%9F%E6%B4%BB%E5%A4%A7%E7%88%86%E7%82%B8&ie=utf-8'
+base_url = 'http://c.tieba.baidu.com/f?kw=%E5%90%83%E8%B4%A7&ie=utf-8'
+
 # 深度(页数)
-deep = 6
+deep = 10
 
 # 作为脚本立即执行， import 导入无效
 if __name__ == '__main__':
