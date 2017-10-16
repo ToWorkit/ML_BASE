@@ -4,6 +4,10 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/Reptile/Scrapy" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Reptile/Scrapy/weather" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Reptile/Scrapy/xiubai" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Reptile/Scrapy/xiubai/xiubai" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Reptile/Scrapy/xiubai/xiubai/middlewares" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Reptile/Scrapy/xiubai/xiubai/spiders" isTestSource="false" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.5.2 (/usr/bin/python3.5)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
