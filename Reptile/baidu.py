@@ -33,7 +33,7 @@ def get_content(url):
     # 将需要的网页信息保存到本地
     html = get_html(url)
     # 构建bs4
-    soup = BeautifulSoup(html, 'lxml')
+    soup = BeautifulSoup(html, 'html.parser')
     # 找到所有指定类属性的li
     liTags = soup.find_all('li', attrs={'class': ' j_thread_list clearfix'})
     # 迭代
@@ -65,7 +65,7 @@ def get_content(url):
 def OutFile(dict):
     # 文件读取使用with
     # 附加读写
-    with open('date.txt', 'a+') as f:
+    with open('date.txt', 'a+', encoding='utf8') as f:
         for comment in dict:
             print(comment)
             # format 字符串格式化 %s
@@ -89,7 +89,7 @@ def main(base_url, deep):
         OutFile(content)
     print('辛苦了小蜘蛛，数据以处理完毕')
 
-base_url = 'http://tieba.baidu.com/f?kw=%E7%94%9F%E6%B4%BB%E5%A4%A7%E7%88%86%E7%82%B8&ie=utf-8'
+base_url = 'http://c.tieba.baidu.com/f?kw=%E5%90%83%E8%B4%A7&ie=utf-8'
 # 深度(页数)
 deep = 6
 
