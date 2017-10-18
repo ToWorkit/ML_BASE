@@ -1,4 +1,5 @@
 from pandas import DataFrame, Series
+import numpy
 
 class create_dataframe():
   # 先对数据做定义
@@ -32,4 +33,8 @@ class create_dataframe():
 
   # 条件值
   # print(df[df['gold'] > 10])
-  print(df['silver'][df['gold'] >= 10])
+  # print(df['silver'][df['gold'] >= 10])
+  
+
+  # 金牌的平均值
+  # print(df['gold'].apply(numpy.mean))
