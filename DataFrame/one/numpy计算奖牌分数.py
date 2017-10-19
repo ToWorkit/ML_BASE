@@ -22,27 +22,18 @@ class create_dataframe():
   df = DataFrame(olympics_medal_counts)
   # print(df)
   
-  # 获取列
-  # print(df['country_name'][2])
-
-  # 调整显示的数据
-  # print(df[['country_name', 'gold']])
-
-  # 索引值
-  # print(df.loc['a'])
-
-  # 条件值
-  # print(df[df['gold'] > 10])
-  # print(df['silver'][df['gold'] >= 10])
+  # 一块金牌四分，银牌二分，铜牌一分
+  # 取出奖牌
+  medal_counts = df[['gold', 'silver', 'bronze']]
+  print(medal_counts)
+  # 对应分数求矩阵乘积
+  points = numpy.dot(medal_counts, [4, 2, 1])
+  # print(points)
+  # 将国家和分数重新组成数据集
+  olympics_points = {
+    'country_name': Series(countries),
+    'points': Series(points)
+  }
+  olp_df = DataFrame(olympics_points)
+  print(olp_df)
   
-
-  # 金牌的平均值
-  # print(numpy.mean(df['gold']))
-  
-  # 铜牌数且至少拥有一枚金牌
-  # df_b_g = df['bronze'][df['gold'] >= 1]
-  # print(df_b_g)
-  # print(numpy.mean(df_b_g))
-
-  # 奖牌平均
-  print(df[['gold','silver','bronze']].apply(numpy.mean))
