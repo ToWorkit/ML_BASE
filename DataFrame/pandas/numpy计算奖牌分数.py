@@ -22,7 +22,7 @@ class create_dataframe():
   df = DataFrame(olympics_medal_counts)
   # print(df)
   
-  # 一块金牌四分，银牌二分，铜牌一分
+  # 得分 -> 一块金牌四分，银牌二分，铜牌一分
   # 取出奖牌
   medal_counts = df[['gold', 'silver', 'bronze']]
   print(medal_counts)
