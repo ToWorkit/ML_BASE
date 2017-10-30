@@ -33,3 +33,6 @@ selenium-debug.log
 *.ntvs*
 *.njsproj
 *.sln
+*.ipynb_checkpoints
+~/.ipynb_checkpoints
+~.ipynb_checkpoints
