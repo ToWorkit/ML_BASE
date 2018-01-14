@@ -20,7 +20,7 @@ class create_dataframe():
   # 转换，创建数据帧
   # 一个dataframe是一个二维的表结构
   df = DataFrame(olympics_medal_counts)
-  # print(df)
+  print(df)
   
   # 获取列
   # print(df['country_name'][2])
